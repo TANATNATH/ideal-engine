@@ -1,0 +1,39 @@
+{
+  "extends": ["eslint-config-constellation"],
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "ecmaVersion": 12,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "typescript": {
+        "project": "./tsconfig.json"
+      }
+    }
+  },
+  "rules": {
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/ban-ts-comment": "off",
+    "consistent-return": "off",
+    "func-names": "off",
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          ["^react", "^@?\\w"],
+          [
+            "^(blockchain-wallet-v4|blockchain-info-components|components|coins|core|data|layouts|providers|services|utils)(/.*|$)"
+          ],
+          ["^\\.", "^[^.]"]
+        ]
+      }
+    ]
+  }
+}
